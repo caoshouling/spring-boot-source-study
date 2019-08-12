@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>${revision}</version>
+		<relativePath>../spring-boot-project/spring-boot-starters/spring-boot-starter-parent</relativePath>
+  </parent>  
+ 
+  <artifactId>spring-boot-source-study</artifactId>
+  <groupId>org.csl.study</groupId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>war</packaging>
+  <name>spring-boot-source-study Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+  
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <!-- web依赖 -->
+    <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+    </dependency> 
+    <dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+	</dependency>
+	<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+            <scope>provided</scope>
+    </dependency>
+    
+  </dependencies>
+  <build>
+	<finalName>spring-boot-source-study</finalName>
+	<plugins>
+		<plugin>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-maven-plugin</artifactId>
+			<!-- spring-boot-starter-parent方式，也可以省略<goal>的配置-->
+			<executions>
+			     <execution>
+			        <goals> 
+			          <goal>repackage</goal>
+			        </goals>
+			     </execution>
+			</executions> 
+			<!-- 指定启动类：存在多个时需要指定 -->
+			<configuration>
+				<mainClass>org.csl.study.springboot.source.build.App2</mainClass>
+			</configuration>
+		 </plugin>   
+			<!--servlet容器 tomcat 插件 -->
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<version>2.2</version>
+			</plugin>
+	</plugins>
+
+</build>
+</project>

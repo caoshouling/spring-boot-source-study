@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+ 
+ <!-- 说明：spring-boot-dependencies的配置方式 -->
+  <modelVersion>4.0.0</modelVersion>
+  <artifactId>spring-boot-source-study</artifactId>
+  <groupId>org.csl.study</groupId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>war</packaging>
+  <name>spring-boot-source-study Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+  <dependencyManagement>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-dependencies</artifactId>
+			<version>2.1.4.RELEASE</version>
+			<type>pom</type>
+			<scope>import</scope>
+		</dependency>
+	</dependencies>
+  </dependencyManagement>
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <!-- web依赖 -->
+    <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+    </dependency> 
+    <dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+	</dependency>
+    
+  </dependencies>
+  <build>
+	<finalName>spring-boot-source-study</finalName>
+	<plugins>
+		<!-- 说明：spring-boot-dependencies的配置方式：spring-boot-maven-plugin 需要指定goal为repackage -->
+		<plugin>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-maven-plugin</artifactId>
+			<executions>
+			     <execution>
+			        <goals> 
+			          <goal>repackage</goal>
+			        </goals>
+			     </execution>
+			</executions> 
+			<!--指定启动类：存在多个时需要指定-->
+			<configuration>
+				<mainClass>org.csl.study.springboot.source.build.App2</mainClass>
+			</configuration>
+		</plugin> 
+	</plugins>
+
+</build>
+</project>
